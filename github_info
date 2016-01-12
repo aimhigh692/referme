@@ -11,3 +11,24 @@ git init
 
 Get code from github directory
 git clone https://github.com/aimhigh692/referme.git
+
+To always check status of the code
+git status
+
+To add changes:
+git add github_info 
+
+Create New branch to edit the code, Master is the main branch and we push the code to master only when we are sure in later stages.
+git checkout -b edit_info
+
+To list all the branch
+git branch
+
+Commit all the changes in local machine:
+git commit -m "Second commit"
+
+Push change to remote repository for other to start editing/viewing
+git push origin edit_info
+
+To sync code from github
+git pull https://github.com/aimhigh692/referme.git <branch_name> 
