@@ -1,1 +1,13 @@
 # How to push the code
+
+Create new dir:
+mkdir referme
+
+Enter in referme/
+cd referme
+
+Initialize git directory
+git init
+
+Get code from github directory
+git clone https://github.com/aimhigh692/referme.git
