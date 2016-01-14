@@ -96,16 +96,16 @@
         "source": "/Users/surath/Desktop/ReferMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/com_facebook_login_fragment.xml"
     },
     {
-        "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
-        "source": "/Users/surath/Desktop/ReferMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/messenger_button_send_blue_round.xml"
-    },
-    {
         "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
         "source": "/Users/surath/Desktop/ReferMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/com_facebook_activity_layout.xml"
     },
     {
         "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
         "source": "/Users/surath/Desktop/ReferMe/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/layout/messenger_button_send_blue_round.xml",
+        "source": "/Users/surath/Desktop/ReferMe/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.6.0/res/layout/messenger_button_send_blue_round.xml"
     },
     {
         "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",

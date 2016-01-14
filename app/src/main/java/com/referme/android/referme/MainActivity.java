@@ -19,6 +19,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+
 public class MainActivity extends Activity {
     private TextView info;
     private LoginButton loginButton;
@@ -34,6 +35,20 @@ public class MainActivity extends Activity {
         info = (TextView)findViewById(R.id.info);
         loginButton = (LoginButton)findViewById(R.id.login_button);
         Log.d(TAG, "In test1");
+//        Generating new hash for the login
+//        try {
+//            PackageInfo info = getPackageManager().getPackageInfo("com.referme.android.referme", PackageManager.GET_SIGNATURES);
+//            for (Signature signature : info.signatures) {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                Log.d("YourKeyHash :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+//            }
+//        } catch (PackageManager.NameNotFoundException e) {
+//
+//        } catch (NoSuchAlgorithmException e) {
+//
+//        }
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
