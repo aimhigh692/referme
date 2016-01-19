@@ -12,12 +12,20 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 
 public class MainActivity extends Activity {
@@ -25,6 +33,7 @@ public class MainActivity extends Activity {
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private static final String TAG = MainActivity.class.getSimpleName();
+    private AccessToken accessToken = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,24 +43,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         info = (TextView)findViewById(R.id.info);
         loginButton = (LoginButton)findViewById(R.id.login_button);
+
+
+
+
         Log.d(TAG, "In test1");
-//        Generating new hash for the login
-//        try {
-//            PackageInfo info = getPackageManager().getPackageInfo("com.referme.android.referme", PackageManager.GET_SIGNATURES);
-//            for (Signature signature : info.signatures) {
-//                MessageDigest md = MessageDigest.getInstance("SHA");
-//                md.update(signature.toByteArray());
-//                Log.d("YourKeyHash :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-//            }
-//        } catch (PackageManager.NameNotFoundException e) {
-//
-//        } catch (NoSuchAlgorithmException e) {
-//
-//        }
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email", "read_custom_friendlists"));
+
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                accessToken = loginResult.getAccessToken();
                 info.setText(
                         "User ID: "
                                 + loginResult.getAccessToken().getUserId()
@@ -59,6 +62,20 @@ public class MainActivity extends Activity {
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
                 );
+                GraphRequest request = GraphRequest.newMeRequest(
+                        accessToken,
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) {
+                                // Insert your code here
+                                Log.d("response1 = ", response.toString());
+                            }
+                        });
+
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,friends{first_name,last_name,picture,birthday,email}");
+                request.setParameters(parameters);
+                request.executeAsync();
             }
 
             @Override
@@ -85,7 +102,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         Log.d(TAG, "In test5");
+        Log.d(TAG, String.format("requestcode %d, resultCode %d, data %s", requestCode, resultCode, data));
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

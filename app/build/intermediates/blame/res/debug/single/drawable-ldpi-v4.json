@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/search.png",
+        "source": "/Users/surath/Desktop/ReferMe/app/src/main/res/drawable-ldpi/search.png"
+    },
+    {
+        "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/profile.png",
+        "source": "/Users/surath/Desktop/ReferMe/app/src/main/res/drawable-ldpi/profile.png"
+    },
+    {
+        "merged": "/Users/surath/Desktop/ReferMe/app/build/intermediates/res/merged/debug/drawable-ldpi-v4/home.png",
+        "source": "/Users/surath/Desktop/ReferMe/app/src/main/res/drawable-ldpi/home.png"
+    }
+]
